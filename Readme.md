@@ -8,11 +8,11 @@
 
 ## How it works ?
 
-* Add text after the <bold>#</bold> (hashtag) fragment 
+* Text after the <bold>#</bold> (hashtag) fragment is read from `window.location` and parsed
 <img src="./assets/first.png"></img>
 
-* Use <bold>_</bold> (underscore) as the text delimeter 
+* Uses <bold>_</bold> (underscore) as the text delimeter for individual speech bubble.
 
 <img src="./assets/second.png">
 
-* Share the entire URL with your friends
+* `?share=1` enables share mode for standalone view
