@@ -1,8 +1,11 @@
 
 
 (function () {
-  // Just a simple POC app.
-  var app = function(){
+  window.onpopstate = history.onpushstate = function(e) {
+    fillText();
+   }
+
+  var fillText = function(){
     var delim = "_";
     var hash = location.hash.substring(1)
   
@@ -13,7 +16,5 @@
     }
   };
 
-
-  setTimeout(app, 100);  
- 
+  fillText()
 })();
