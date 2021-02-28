@@ -9,10 +9,10 @@
 ## How it works ?
 
 * Text after the <bold>#</bold> (hashtag) fragment is read from `window.location` and parsed
-<img src="./assets/first.png"></img>
+<img src="./assets/url.png"></img>
 
 * Uses <bold>_</bold> (underscore) as the text delimeter for individual speech bubble.
 
-<img src="./assets/second.png">
+<img src="./assets/example.png">
 
 * `?share=1` enables share mode for standalone view
