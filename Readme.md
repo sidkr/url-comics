@@ -13,7 +13,6 @@
 <img src="./assets/url.png"></img>
 
 * Uses <bold>_</bold> (underscore) as the text delimeter for individual speech bubble.
-
-<img src="./assets/example.png">
+<img src="./assets/example-min.png">
 
 * `?share=1` enables share mode for standalone view
