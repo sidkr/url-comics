@@ -132,6 +132,7 @@ input[type="text"] {
   box-sizing: border-box;
   letter-spacing: 1px;
   font-family: "Courier New";
+  font-weight: bold;
 }
 :focus {
   outline: none;
@@ -149,6 +150,7 @@ button{
     font-size: 1.4em;
     border-radius: 10px;
     font-family: "Courier New";
+    font-weight: bold;
 }
 
 .col{
