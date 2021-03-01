@@ -6,6 +6,7 @@
     shareSection = document.getElementsByClassName("share-container")[0],
     shareLink = document.getElementById("share-link"),
     toast = document.getElementsByClassName('toast')[0],
+    cOwnSectio = document.getElementById('c-own'),
     editMode = true, //default
 
    fillText = function (inputArray) {
@@ -25,6 +26,7 @@
   if (share === "1") {
     editMode = false;
     editSection.style.display = "none";
+    cOwnSectio.style.display = "block";
     fillText();
   } else {
     editSection.style.display = "block";
