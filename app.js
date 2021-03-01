@@ -5,23 +5,35 @@
     generateBtn = document.getElementById("generate"),
     shareSection = document.getElementsByClassName("share-container")[0],
     shareLink = document.getElementById("share-link"),
-    toast = document.getElementsByClassName('toast')[0],
-    cOwnSectio = document.getElementById('c-own'),
+    toast = document.getElementsByClassName("toast")[0],
+    cOwnSectio = document.getElementById("c-own"),
+    shareBtn = document.getElementById("share-icon"),
+    shareUrl = "",
     editMode = true, //default
+    fillText = function (inputArray) {
+      if (!editMode) {
+        var delim = "_",
+          hash = location.hash.substring(1),
+          inputArray = hash.split(delim);
+      }
 
-   fillText = function (inputArray) {
-    if (!editMode) {
-      var delim = "_",
-        hash = location.hash.substring(1),
-        inputArray = hash.split(delim);
-    }
+      for (var i = 0; i < 3; i++) {
+        document.getElementById("p-" + i).innerHTML = decodeURI(inputArray[i]);
+      }
 
-    for (var i = 0; i < 3; i++) {
-      document.getElementById("p-" + i).innerHTML = decodeURI(inputArray[i]);
-    }
+      document.getElementById("c").scrollIntoView();
+    },
+    copyToClipBoard = function () {
+      //Copy to clipboard
+      shareLink.select();
+      document.execCommand("copy");
 
-    document.getElementById("c").scrollIntoView();
-  };
+      //Show toast
+      toast.className = "toast show";
+      setTimeout(function () {
+        toast.className = toast.className.replace("show", "");
+      }, 3000);
+    };
 
   if (share === "1") {
     editMode = false;
@@ -49,15 +61,24 @@
       "_" +
       inputArray[2];
     shareLink.value = encodeURI(link);
+    shareUrl = encodeURI(link);
+  });
 
-    //Copy to clipboard
-    shareLink.select();
-    document.execCommand("copy");
-
-    //Show toast
-    toast.className = "toast show";
-    setTimeout(function () {
-      toast.className = toast.className.replace("show", "");
-    }, 3000);
+  shareBtn.addEventListener("click", function (e) {
+    e.preventDefault();
+    if (navigator.share) {
+      navigator
+        .share({
+          title: "Hash Comics Present...",
+          url: shareUrl,
+        })
+        .then(() => {
+          console.log("Thanks for sharing!");
+        })
+        .catch(console.error);
+    } else {
+      //fallback copy to clipboard
+      copyToClipBoard();
+    }
   });
 })();
