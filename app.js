@@ -69,7 +69,8 @@
     if (navigator.share) {
       navigator
         .share({
-          title: "Hash Comics Present...",
+          title: "💬",
+          text: "Hash Comics Present...",
           url: shareUrl,
         })
         .then(() => {
